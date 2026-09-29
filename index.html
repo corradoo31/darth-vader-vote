@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Votazione Darth_vader_2026">
+  <title>Darth_vader_2026 - Votazione</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="card">
+      <div class="icon">⚔️</div>
+      <h1>Darth_vader_2026</h1>
+      <p class="subtitle">Vuoi Darth_vader_2026 nel server?</p>
+
+      <div class="buttons">
+        <button class="vote yes" data-vote="yes">
+          <span>✓</span>
+          SÌ, LO VOGLIO NEL SERVER
+        </button>
+
+        <button class="vote no" data-vote="no">
+          <span>✕</span>
+          NO, NON LO VOGLIO NEL SERVER
+        </button>
+      </div>
+
+      <section class="percentages" aria-label="Percentuali dei voti">
+        <div class="percentage-box yes-box">
+          <strong id="yes-percent">0%</strong>
+          <span>Vogliono Darth_vader_2026</span>
+        </div>
+        <div class="percentage-box no-box">
+          <strong id="no-percent">0%</strong>
+          <span>Non lo vogliono</span>
+        </div>
+      </section>
+
+      <div class="total" id="total-votes">0 voti totali</div>
+
+      <div id="result" class="result hidden" aria-live="polite">
+        <div class="result-icon">✓</div>
+        <h2>Voto registrato!</h2>
+        <p id="result-text"></p>
+        <button id="again" class="again">Vota di nuovo</button>
+      </div>
+
+      <p class="note">Le percentuali vengono aggiornate in base ai voti salvati su questo browser.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
