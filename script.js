@@ -1,13 +1,13 @@
 const buttons = document.querySelectorAll(".vote");
 const result = document.getElementById("result");
 const resultText = document.getElementById("result-text");
-const again = document.getElementById("again");
 const yesPercent = document.getElementById("yes-percent");
 const noPercent = document.getElementById("no-percent");
 const totalVotes = document.getElementById("total-votes");
 const yesTrack = document.querySelector(".result-track-yes");
 
 const STORAGE_KEY = "darth_vader_2026_votes";
+const USER_VOTE_KEY = `${STORAGE_KEY}_submitted`;
 
 function getVotes() {
   try {
@@ -19,6 +19,18 @@ function getVotes() {
 
 function saveVotes(votes) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(votes));
+}
+
+function getSubmittedVote() {
+  try {
+    const savedVote = localStorage.getItem(USER_VOTE_KEY);
+    if (savedVote === "yes" || savedVote === "no") return savedVote;
+
+    const votes = getVotes();
+    return votes.yes + votes.no > 0 ? "previous" : null;
+  } catch {
+    return null;
+  }
 }
 
 function updatePercentages() {
@@ -34,38 +46,43 @@ function updatePercentages() {
   yesTrack.style.width = `${yes}%`;
 }
 
+function showSubmittedVote(vote) {
+  buttons.forEach((button) => {
+    button.disabled = true;
+    button.classList.toggle("is-selected", button.dataset.vote === vote);
+  });
+
+  if (vote === "yes") {
+    resultText.textContent = "Hai scelto: vuoi Darth_vader_2026 nel server.";
+  } else if (vote === "no") {
+    resultText.textContent = "Hai scelto: non vuoi Darth_vader_2026 nel server.";
+  } else {
+    resultText.textContent = "Hai già espresso il tuo voto da questo browser.";
+  }
+
+  result.classList.remove("hidden");
+}
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
+    const submittedVote = getSubmittedVote();
+    if (submittedVote) {
+      showSubmittedVote(submittedVote);
+      return;
+    }
+
     const vote = button.dataset.vote;
     const votes = getVotes();
 
     votes[vote]++;
     saveVotes(votes);
+    localStorage.setItem(USER_VOTE_KEY, vote);
     updatePercentages();
-
-    if (vote === "yes") {
-      resultText.textContent = "Hai scelto: vuoi Darth_vader_2026 nel server.";
-    } else {
-      resultText.textContent = "Hai scelto: non vuoi Darth_vader_2026 nel server.";
-    }
-
-    buttons.forEach((btn) => {
-      btn.disabled = true;
-      btn.style.opacity = "0.45";
-    });
-
-    result.classList.remove("hidden");
+    showSubmittedVote(vote);
     result.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
 
-again.addEventListener("click", () => {
-  buttons.forEach((btn) => {
-    btn.disabled = false;
-    btn.style.opacity = "1";
-  });
-
-  result.classList.add("hidden");
-});
-
 updatePercentages();
+const submittedVote = getSubmittedVote();
+if (submittedVote) showSubmittedVote(submittedVote);
