@@ -5,6 +5,7 @@ const again = document.getElementById("again");
 const yesPercent = document.getElementById("yes-percent");
 const noPercent = document.getElementById("no-percent");
 const totalVotes = document.getElementById("total-votes");
+const yesTrack = document.querySelector(".result-track-yes");
 
 const STORAGE_KEY = "darth_vader_2026_votes";
 
@@ -29,7 +30,8 @@ function updatePercentages() {
 
   yesPercent.textContent = `${yes}%`;
   noPercent.textContent = `${no}%`;
-  totalVotes.textContent = `${total} ${total === 1 ? "voto" : "voti"} totali`;
+  totalVotes.textContent = total === 1 ? "1 voto totale" : `${total} voti totali`;
+  yesTrack.style.width = `${yes}%`;
 }
 
 buttons.forEach((button) => {

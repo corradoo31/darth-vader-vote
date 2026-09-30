@@ -3,52 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Votazione Darth_vader_2026">
-  <title>Darth_vader_2026 - Votazione</title>
+  <meta name="description" content="Esprimi il tuo voto: vuoi Darth_vader_2026 nel server?">
+  <meta name="theme-color" content="#11120f">
+  <title>Darth_vader_2026 | Votazione</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="container">
-    <div class="card">
-      <div class="icon">⚔️</div>
-      <h1>Darth_vader_2026</h1>
-      <p class="subtitle">Vuoi Darth_vader_2026 nel server?</p>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#inizio" aria-label="Darth Vader 2026, inizio pagina">
+        <span class="wordmark-mark" aria-hidden="true">DV</span>
+        <span>Voto della community</span>
+      </a>
+      <span class="edition">Candidatura aperta <span class="live-dot" aria-hidden="true"></span></span>
+    </header>
 
-      <div class="buttons">
-        <button class="vote yes" data-vote="yes">
-          <span>✓</span>
-          SÌ, LO VOGLIO NEL SERVER
-        </button>
-
-        <button class="vote no" data-vote="no">
-          <span>✕</span>
-          NO, NON LO VOGLIO NEL SERVER
-        </button>
-      </div>
-
-      <section class="percentages" aria-label="Percentuali dei voti">
-        <div class="percentage-box yes-box">
-          <strong id="yes-percent">0%</strong>
-          <span>Vogliono Darth_vader_2026</span>
+    <main class="container" id="inizio">
+      <section class="hero" aria-labelledby="candidate-name">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>Nomina n. 026</span> · Decisione della community</p>
+          <div class="icon" aria-hidden="true"><span>DV</span></div>
+          <h1 id="candidate-name">Darth_vader_<span>2026</span></h1>
+          <p class="subtitle">Una voce in più nel server.<br><strong>Sei d'accordo?</strong></p>
+          <div class="candidate-meta" aria-label="Dettagli candidatura">
+            <span><i></i> Candidatura attiva</span>
+            <span>Esito in tempo reale</span>
+          </div>
         </div>
-        <div class="percentage-box no-box">
-          <strong id="no-percent">0%</strong>
-          <span>Non lo vogliono</span>
-        </div>
+
+        <section class="card" aria-labelledby="ballot-title">
+          <div class="ballot-heading">
+            <span class="ballot-index">LA TUA SCELTA</span>
+            <span class="ballot-mark" aria-hidden="true">01 / 01</span>
+          </div>
+          <h2 id="ballot-title">Vuoi Darth_vader_2026 nel server?</h2>
+
+          <div class="buttons" role="group" aria-label="Scegli se vuoi Darth_vader_2026 nel server">
+            <button class="vote yes" data-vote="yes" type="button">
+              <span aria-hidden="true">+</span>
+              <span class="vote-label">Sì, lo voglio nel server</span>
+              <span class="vote-arrow" aria-hidden="true">↗</span>
+            </button>
+
+            <button class="vote no" data-vote="no" type="button">
+              <span aria-hidden="true">−</span>
+              <span class="vote-label">No, non lo voglio</span>
+              <span class="vote-arrow" aria-hidden="true">↗</span>
+            </button>
+          </div>
+
+          <div class="result hidden" id="result" aria-live="polite" aria-atomic="true">
+            <div class="result-icon" aria-hidden="true">✓</div>
+            <div class="result-copy">
+              <h3>Voto registrato</h3>
+              <p id="result-text"></p>
+            </div>
+            <button id="again" class="again" type="button">Vota di nuovo <span aria-hidden="true">↗</span></button>
+          </div>
+
+          <div class="results-heading"><span>Risultati</span><span class="total" id="total-votes">0 voti totali</span></div>
+          <section class="percentages" aria-label="Percentuali dei voti">
+            <div class="percentage-box yes-box">
+              <strong id="yes-percent">0%</strong>
+              <span>Lo vogliono</span>
+            </div>
+            <div class="percentage-box no-box">
+              <strong id="no-percent">0%</strong>
+              <span>Non lo vogliono</span>
+            </div>
+          </section>
+          <div class="result-track" aria-hidden="true"><span class="result-track-yes"></span><span class="result-track-no"></span></div>
+
+          <p class="note"><span class="note-mark" aria-hidden="true">i</span> I voti sono salvati in questo browser e non vengono condivisi tra dispositivi.</p>
+        </section>
       </section>
 
-      <div class="total" id="total-votes">0 voti totali</div>
-
-      <div id="result" class="result hidden" aria-live="polite">
-        <div class="result-icon">✓</div>
-        <h2>Voto registrato!</h2>
-        <p id="result-text"></p>
-        <button id="again" class="again">Vota di nuovo</button>
-      </div>
-
-      <p class="note">Le percentuali vengono aggiornate in base ai voti salvati su questo browser.</p>
-    </div>
-  </main>
+      <footer class="footer"><span>DECISIONE COLLETTIVA</span><span>Ogni voto conta.</span></footer>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
