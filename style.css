@@ -62,6 +62,16 @@ h1 span { color: var(--red); }
 .ballot-index { color: var(--gold); font-size: 10px; }
 .ballot-mark { color: var(--muted); font-size: 9px; }
 .card h2 { max-width: 390px; margin: 24px 0 23px; font-family: "Barlow Condensed", sans-serif; font-size: 30px; font-weight: 600; line-height: 1.12; }
+.auth-panel { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 12px; margin: 0 0 15px; padding: 18px 14px; border: 1px solid var(--line); background: rgba(0, 0, 0, .14); text-align: center; }
+.auth-copy { width: 100%; min-width: 0; }
+.auth-status { margin: 0; color: var(--paper); font-size: 12px; font-weight: 700; }
+.auth-detail { margin: 4px 0 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+.discord-login, .discord-logout { min-width: 190px; min-height: 40px; padding: 0 14px; border: 1px solid rgba(130, 154, 255, .5); border-radius: 3px; background: #4654a5; color: #fff; font-size: 11px; font-weight: 700; cursor: pointer; transition: background-color .18s ease, opacity .18s ease; }
+.discord-login:hover:not(:disabled) { background: #5869c7; }
+.discord-login:disabled { opacity: .48; cursor: not-allowed; }
+.discord-logout { border-color: var(--line); background: transparent; color: var(--paper); }
+.discord-logout:hover:not(:disabled) { background: rgba(244, 241, 233, .08); }
+.discord-login:focus-visible, .discord-logout:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .buttons { display: grid; gap: 10px; }
 .vote {
   width: 100%; min-height: 68px; display: grid; grid-template-columns: 36px 1fr 20px; align-items: center; gap: 12px;
@@ -130,6 +140,8 @@ h1 span { color: var(--red); }
   .candidate-meta { font-size: 8px; }
   .card { padding: 22px 17px 18px; }
   .card h2 { font-size: 26px; }
+  .auth-panel { grid-template-columns: 1fr; }
+  .discord-login, .discord-logout { width: 100%; min-width: 0; }
   .vote { min-height: 62px; grid-template-columns: 33px 1fr 16px; gap: 8px; padding: 10px 11px; }
   .vote-label { font-size: 10px; }
   .percentage-box strong { font-size: 31px; }

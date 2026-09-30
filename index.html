@@ -6,7 +6,7 @@
   <meta name="description" content="Esprimi il tuo voto: vuoi Darth_vader_2026 nel server?">
   <meta name="theme-color" content="#11120f">
   <title>Darth_vader_2026 | Votazione</title>
-  <link rel="stylesheet" href="style.css?v=once-only-1">
+  <link rel="stylesheet" href="style.css?v=discord-login-1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -41,14 +41,23 @@
           </div>
           <h2 id="ballot-title">Vuoi Darth_vader_2026 nel server?</h2>
 
+          <div class="auth-panel" aria-label="Accesso con Discord">
+            <div class="auth-copy">
+              <p class="auth-status" id="auth-status" role="status" aria-live="polite">Controllo accesso...</p>
+              <p class="auth-detail" id="auth-detail">Per votare serve un account Discord.</p>
+            </div>
+            <button class="discord-login" id="discord-login" type="button" disabled>Accedi con Discord</button>
+            <button class="discord-logout" id="discord-logout" type="button" hidden>Esci</button>
+          </div>
+
           <div class="buttons" role="group" aria-label="Scegli se vuoi Darth_vader_2026 nel server">
-            <button class="vote yes" data-vote="yes" type="button">
+            <button class="vote yes" data-vote="yes" type="button" disabled>
               <span aria-hidden="true">+</span>
               <span class="vote-label">Sì, lo voglio nel server</span>
               <span class="vote-arrow" aria-hidden="true">↗</span>
             </button>
 
-            <button class="vote no" data-vote="no" type="button">
+            <button class="vote no" data-vote="no" type="button" disabled>
               <span aria-hidden="true">−</span>
               <span class="vote-label">No, non lo voglio</span>
               <span class="vote-arrow" aria-hidden="true">↗</span>
@@ -76,7 +85,7 @@
           </section>
           <div class="result-track" aria-hidden="true"><span class="result-track-yes"></span><span class="result-track-no"></span></div>
 
-          <p class="note"><span class="note-mark" aria-hidden="true">i</span> Puoi votare una sola volta da questo browser. Il voto non è modificabile e non viene condiviso tra dispositivi.</p>
+          <p class="note"><span class="note-mark" aria-hidden="true">i</span> Un solo voto per account Discord. Il voto non è modificabile.</p>
         </section>
       </section>
 
@@ -84,6 +93,6 @@
     </main>
   </div>
 
-  <script src="script.js?v=once-only-1"></script>
+  <script type="module" src="script.js?v=discord-login-1"></script>
 </body>
 </html>
